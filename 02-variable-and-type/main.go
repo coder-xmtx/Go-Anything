@@ -1,10 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
-	// var 定义变量，string 是变量的类型
-	var name string = "Mixso"
+
+	// 变量定义 var xxx type
+	var name string = "mixso studio"
 	var year int = 2026
-	fmt.Println("name:", name, "year:", year)
+
+	// 类型推断 :=
+	age := 12
+
+	fmt.Println(strings.ToUpper(name), year, age)
 }
