@@ -23,7 +23,7 @@ func main() {
 	testInt()
 
 	// 数组
-	var aaa []int = []int{1, 2, 3}
+	var aaa [3]int = [3]int{1, 2, 3}
 	fmt.Println(aaa)
 }
 
