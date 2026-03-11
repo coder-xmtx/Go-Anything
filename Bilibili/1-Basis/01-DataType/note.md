@@ -158,6 +158,16 @@ var map1 = map[string]int{"Go": 96, "python": 95}  // 标准写法，Key为strin
 map2 := map[string]int{"Go": 96, "python": 95}  // 类型推断
 ```
 
+访问不存在的键会返回值类型的零值，但可以通过“逗号OK”模式判断是否存在：
+
+```go
+value, ok := m["python"]
+if ok {
+    fmt.Println("存在：", value)
+}
+
+```
+
 ## 结构体
 
 可以看作其他语言中的类，不过有很大不同，格式为`type xxx struct{}`
