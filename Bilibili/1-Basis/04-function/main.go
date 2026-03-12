@@ -3,20 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	strs := []string{"hello", "world"}
-	result := process(strs, func(str string) string {
-		return str + "!"
-	})
-	fmt.Println(result)
+	fmt.Println(sum(1, 2, 3, 4, 5))
+
+	array := []int{1, 2, 3, 4, 5}
+	fmt.Println(sum(array...))
 }
 
-//
-type StringProcessor func(string) string
+// 可变参数
 
-func process(strs []string, processor StringProcessor) []string {
-	var result []string
-	for _, str := range strs {
-		result = append(result, processor(str))
+func sum(nums ...int) int {
+	total := 0
+	for _, num := range nums {
+		total += num
 	}
-	return result
+	return total
 }

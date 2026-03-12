@@ -95,7 +95,7 @@ func QueryUser(userId int) (string, int, error) {
 
 ## 匿名函数与闭包
 
-这一块没听懂
+闭包是一个函数“捕获”了它外部作用域的变量。即使外部函数已经返回，这些变量依然存在（不会被销毁），因为内部函数仍然持有它们的引用。
 
 ```go
 package main
@@ -120,4 +120,66 @@ func createCounter() func() int {
 }
 ```
 
+讲解该例子：
+
+1. `createCounter()`被调用，初始化局部变量`count := 0`
+2. 该函数返回一个匿名函数，这个匿名函数**引用**了变量`count`
+3. 匿名函数连同它引用的环境（即`count`）一起构成了一个闭包，即使`createCounter()`执行完毕，`count`也不会消失，因为它被闭包持有
+4. 每次调用`counter()`，实际上都是在操作同一个`count`变量，所以它会递增
+
 ## 函数作为参数
+
+这一块的代码完全看不懂
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	strs := []string{"hello", "world"}
+	result := process(strs, func(str string) string {
+		return str + "!"
+	})
+	fmt.Println(result)
+}
+
+// 定义了一个名为 StringProcessor 的类型
+// 它表示所有接受一个 string 参数并返回一个 string 的函数
+// 之后就可以用这个类型来声明变量或参数
+type StringProcessor func(string) string
+
+func process(strs []string, processor StringProcessor) []string {
+	var result []string
+	for _, str := range strs {
+		result = append(result, processor(str))
+	}
+	return result
+}
+```
+
+## 可变参数
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	fmt.Println(sum(1, 2, 3, 4, 5))
+
+	array := []int{1, 2, 3, 4, 5}
+	fmt.Println(sum(array...))
+}
+
+// 可变参数
+
+func sum(nums ...int) int {
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	return total
+}
+```
