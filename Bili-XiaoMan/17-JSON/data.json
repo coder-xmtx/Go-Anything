@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Mixsu",
+    "age": 21,
+    "native": "Chinese",
+    "Golang": true,
+    "address": null
+  },
+  {
+    "name": "Bryony",
+    "age": 18,
+    "native": "Chinese",
+    "Golang": false,
+    "address": null
+  }
+]
