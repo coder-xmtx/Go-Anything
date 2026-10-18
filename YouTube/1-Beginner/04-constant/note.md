@@ -1,3 +1,10 @@
+# const
+
+## 旧笔记
+
+关于 iota
+
+```go
 package main
 
 import "fmt"
@@ -17,8 +24,4 @@ const (
 
 	e, f = iota * 1, iota * 2 // 2,4  iota = 2
 )
-
-func main() {
-	const number int = 10
-	fmt.Println("number =", number) // number = 10
-}
+```
